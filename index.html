@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Ravi 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff4d6d, #ff9a9e);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      text-align: center;
+      width: 340px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      animation: pop 1s ease;
+      z-index: 2;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 { color: #ff4d6d; }
+    p { font-size: 18px; color: #555; }
+
+    .buttons { margin-top: 25px; }
+
+    button {
+      padding: 14px 34px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: none;
+      margin: 8px;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    #no {
+      background: #ddd;
+      color: #777;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 22px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MUSIC (plays on YES click) -->
+  <audio id="music">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card" id="card">
+    <h1>💖 Happy Valentine’s Day 💖</h1>
+    <p>
+      Dear <strong>Ravi</strong> 🌹 <br><br>
+      You are my today,<br>
+      my tomorrow,<br>
+      and my forever ❤️
+    </p>
+
+    <button id="yes" onclick="nextStep()">Next 💌</button>
+  </div>
+
+  <script>
+    function nextStep() {
+      document.getElementById("card").innerHTML = `
+        <h1>💍 Will you marry me? 💍</h1>
+        <p>Ravi, my heart already knows the answer ❤️</p>
+        <div class="buttons">
+          <button id="yes" onclick="yesForever()">YES 💖</button>
+          <button id="no">NO 🙈</button>
+        </div>
+      `;
+    }
+
+    function yesForever() {
+      const music = document.getElementById("music");
