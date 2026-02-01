@@ -114,3 +114,29 @@
 
     function yesForever() {
       const music = document.getElementById("music");
+      music.volume = 0.6;
+      music.play(); // ✅ NOW MUSIC PLAYS
+
+      document.body.innerHTML = `
+        <div style="color:white;text-align:center;">
+          <h1 style="font-size:42px;">💍 HE SAID YES 💍</h1>
+          <h2>Ravi, forever starts now ❤️</h2>
+          <p>Our love story just became eternal 🌹</p>
+        </div>
+      `;
+    }
+
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 24 + 16 + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+
+</body>
+</html>
